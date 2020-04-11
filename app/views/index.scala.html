@@ -1,0 +1,18 @@
+@(userForm: Form[User],users: List[User])(implicit messages: Messages)
+
+@main("Welcome to Play") {
+  <h1>Welcome to User manager</h1>
+<h2>New user</h2>
+@helper.form(action = routes.FormController.create()) {
+@helper.inputText(userForm("name"))
+@helper.inputText(userForm("email"))
+@helper.inputText(userForm("age"))
+<input type="submit" value="submit">
+}
+<h2>User list</h2>
+<ul>
+  @for(user <- users) {
+  <li>@user</li>
+  }
+</ul>
+}
